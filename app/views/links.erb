@@ -1,7 +1,9 @@
 <h2> List Of Links </h2>
-<ul id="links">
-<% @links.each do |x| %>
-<li> <%= x.title %> </li>
-<% end %>
 
+<ul id="links">
+  <% @links.each do |link| %>
+    <li>
+      <%= link.title %>
+    </li>
+  <% end %>
 </ul>
