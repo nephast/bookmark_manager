@@ -1,13 +1,10 @@
 require './app/data_mapper_setup.rb'
 
-class Link
+class Tag
 
   include DataMapper::Resource
 
   property :id, Serial
-  property :title, String
-  property :url, String
-
-  has n, :tags, :through => Resource
+  property :name, String
 
 end
