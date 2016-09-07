@@ -12,11 +12,11 @@ feature 'adding links' do
 
   scenario 'add tag to new link' do
     add_link
-    fill_in 'tag', with: 'life invader'
+    fill_in 'tags', with: 'lifeinvader'
     click_button 'Add link'
     link = Link.first
     within 'ul#links' do
-      expect(link.tags.map(&:name)).to include('life invader')
+      expect(link.tags.map(&:name)).to include('lifeinvader')
     end
   end
 end
