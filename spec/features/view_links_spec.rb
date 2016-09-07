@@ -34,11 +34,3 @@ feature 'view filtered links' do
     end
   end
 end
-
-# scenario 'add multiple tags' do
-#   Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy', tags: [Tag.first_or_create(name: 'education', name: 'hell')])
-#   visit '/links/education'
-#   expect(page).to have_content('Makers Academy')
-#   visit '/links/hell'
-#   expect(page).to have_content('Makers Academy')
-# end

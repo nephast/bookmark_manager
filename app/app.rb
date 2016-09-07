@@ -1,7 +1,7 @@
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
 require_relative 'datamapper_setup'
-
-ENV['RACK_ENV'] ||= 'development'
 
 class BookmarkManager < Sinatra::Base
 
