@@ -1,0 +1,4 @@
+<% if current_user %>
+  Welcome, <%= current_user.email %>
+  <a href='/sign_out'>Sign out</a>
+<% end %>

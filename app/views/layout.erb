@@ -3,13 +3,9 @@
   <head>
     <title>Bookmark Manager</title>
   </head>
-
   <body>
-    <% if current_user %>
-      Welcome, <%= current_user.email %>
-      <a href='/sign_out'>Sign out</a>
-    <% end %>
-    <%= flash[:message] %>
+    <%= partial :welcome %>
+    <%= partial :messages %>
     <%= yield %>
   </body>
 </html>
