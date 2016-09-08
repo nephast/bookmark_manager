@@ -3,11 +3,11 @@
 <form action='/users' method='post'>
 <label for='email'>
   Email:
-  <input type='text' name='email' value='<%= flash[:email] %>'>
+  <input type='email' name='email' value='<%= flash[:email] %>' required>
 </label>
 <label for='password'>
   Password:
-  <input type='password' name='password'>
+  <input type='password' name='password' required>
 </label>
 <label for='password_confirmation'>
   Password confirmation:

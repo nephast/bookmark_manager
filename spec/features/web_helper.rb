@@ -24,3 +24,10 @@ def sign_up(email: 'littlethao@me.com',
     fill_in :password_confirmation, with: password_confirmation
     click_button 'Sign up'
 end
+
+def sign_up_no_email(password: '12345678')
+    visit '/sign_up'
+    fill_in :password, with: password
+    fill_in :password_confirmation, with: password
+    click_button 'Sign up'
+end
