@@ -12,11 +12,12 @@ class User
   property :id,     Serial # Serial means that it will be auto-incremented for every record
   property :email,    String, required: true, format: :email_address
   property :password_digest, Text
-  
+
   attr_reader :password
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password
+  validates_uniqueness_of :email
 
   # when assigned the password, we don't store it directly
     # instead, we generate a password digest, that looks like this:

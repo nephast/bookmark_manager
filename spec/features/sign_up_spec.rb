@@ -15,7 +15,7 @@ feature 'Sign up' do
   scenario 'user signs up with a mismatching password' do
     expect{ sign_up(password_confirmation: 'wrong')}.not_to change(User, :count)
     expect(current_path).to eq "/sign_up"
-    expect(page).to have_content "Password and confirmation password do not match"
+    expect(page).to have_content "Password does not match the confirmation"
   end
 
   scenario 'user cannot sign up without email' do
@@ -24,6 +24,12 @@ feature 'Sign up' do
 
   scenario 'user signs up with wrong format email' do
     expect{ sign_up(email: 'wrongemail')}.not_to change(User, :count)
+  end
+
+  scenario 'user can not sign up with already signed up email' do
+    sign_up
+    expect{ sign_up }.not_to change(User, :count)
+    expect(page).to have_content "Email is already taken"
   end
 
 
