@@ -53,6 +53,21 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
+  get '/sign_in' do
+    erb :'users/sign_in'
+  end
+
+  post '/sign_in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user.nil?
+      flash[:error] = 'Invalid Email/Password'
+      redirect '/sign_in'
+    else
+      session[:user_id] = user.id
+      redirect '/links'
+    end
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])

@@ -31,3 +31,10 @@ def sign_up_no_email(password: '12345678')
     fill_in :password_confirmation, with: password
     click_button 'Sign up'
 end
+
+def sign_in(email: 'littlethao@me.com', password: '12345678')
+  visit '/sign_in'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button 'Sign in'
+end
