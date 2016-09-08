@@ -68,6 +68,13 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
+  get '/sign_out' do
+    user = User.get(session[:user_id])
+    flash[:message] = "Goodbye, #{user.email}"
+    session[:user_id] = nil
+    redirect '/links'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
