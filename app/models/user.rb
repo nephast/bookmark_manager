@@ -8,6 +8,7 @@ class User
   property :id,     Serial
   property :email,    String, required: true, format: :email_address
   property :password, BCryptHash
+  property :token, String
 
   attr_reader :password
   attr_accessor :password_confirmation
@@ -22,5 +23,19 @@ class User
       else
         nil
       end
+  end
+
+  def generate_token
+    self.token = SecureRandom.hex
+    self.save
+  end
+
+  def self.update_password(token, new_password)
+    user = User.first(:token => token)
+    if user
+      user.update(:password => new_password, :token => nil)
+    else
+      :wrong_token
+    end
   end
 end

@@ -19,5 +19,10 @@ feature 'User signs in' do
     expect(page).to have_content('Invalid Email/Password')
   end
 
+  scenario 'password recovery' do
+    recover_password
+    expect(page).to have_content("An email has been sent")
+  end
+
 
 end

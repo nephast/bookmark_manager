@@ -30,3 +30,10 @@ def sign_in(email: 'littlethao@me.com', password: '12345678')
   fill_in :password, with: password
   click_button 'Sign in'
 end
+
+def recover_password(email: 'littlethao@me.com')
+  sign_in(password: 'wrong')
+  click_link 'Forgot password'
+  fill_in :email, with: email
+  click_button 'Recover password'
+end
